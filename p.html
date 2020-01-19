@@ -1,0 +1,180 @@
+<HEAD>
+
+<style type="text/css">
+<!--
+.bgclr {background-color: white; color: black; font-weight: bold;}
+-->
+
+	.hidden {
+		display: none;
+	}
+	
+	.visible {
+		display: block;
+	}
+	
+</style>
+
+<script language="JavaScript">
+
+
+// Insert scooter questions number of questions
+var numQues = 10;
+
+// Insert number of choices in each question
+var numChoi = 4;
+
+// Insert number of questions displayed in answer area
+var answers = new Array(10);
+
+// Insert answers to questions
+answers[0] = "[1, 2, ‘hello’]";
+answers[1] = "34.000000";
+answers[2] = "27.2";
+answers[3] = "^";
+answers[4] = "Class";
+answers[5] = "accept";
+answers[6]= "1";
+answers[7]= "25";
+answers[8]="33";
+answers[9]="None of the mentioned";
+
+
+function getScore(form) {
+  var score = 0;
+  var currElt;
+  var currSelection;
+  for (i=0; i<numQues; i++) {
+    currElt = i*numChoi;
+    for (j=0; j<numChoi; j++) {
+      currSelection = form.elements[currElt + j];
+      if (currSelection.checked) {
+        if (currSelection.value == answers[i]) {
+          score++;
+		break;
+        }
+      }
+    }
+  }
+  score = Math.round(score/(numQues-1)*100);
+  form.percentage.value = score + "%";
+  var correctAnswers = "";
+  for (i=0; i<numQues; i++) {
+    correctAnswers += i+1 + ". " + answers[i] + "\r\n";
+  }
+  
+  form.solutions.value = correctAnswers;
+}
+
+
+//  End -->
+</script>
+
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<h3>Python Quiz</h3>
+
+<form name="quiz">
+
+
+1.  What will be the output of the following Python code? nl=[1, 0, 2, 0, 'hello', '', []] list(filter(bool, nl))
+<ul>
+  <li><input type="radio" name="q1" value="[1, 0, 2, ‘hello’, '', []]">[1, 0, 2, ‘hello’, '', []]</li>
+  <li><input type="radio" name="q1" value="Error">Error</li>
+  <li><input type="radio" name="q1" value="[1, 0, 2, 0, ‘hello’, '', []]">[1, 0, 2, 0, ‘hello’, '', []]</li>
+  <li><input type="radio" name="q1" value="[1, 2, ‘hello’]">[1, 2, ‘hello’]</li>
+</ul>
+
+
+
+
+2. What will be the output of the following Python expression if the value of x is 34? \nprint(“%f”%(x))
+
+<ul>
+  <li><input type="radio" name="q2" value="34.00"> 34.00</li>
+  <li><input type="radio" name="q2" value="34.000000">34.000000</li>
+  <li><input type="radio" name="q2" value="34.0000">34.0000</li>
+  <li><input type="radio" name="q2" value="34.00000000">34.00000000</li>
+</ul>
+
+
+
+3.What will be the value of X in the following Python expression? X = 2+9*((3*12)-8)/10: in both directions?
+<ul>
+  <li><input type="radio" name="q3" value="30.8">30.8</li>
+  <li><input type="radio" name="q3" value="27.2">27.2</li>
+  <li><input type="radio" name="q3" value="28.4">28.4</li>
+  <li><input type="radio" name="q3" value="30.0">30.0</li>
+</ul>
+
+4.Which of the following represents the bitwise XOR operator?
+<ul>
+  <li><input type="radio" name="q4" value="&">&</li>
+  <li><input type="radio" name="q4" value="!">!</li>
+  <li><input type="radio" name="q4" value="^">^</li>
+  <li><input type="radio" name="q4" value="|">|</li>
+</ul>
+
+5.Which of these in not a core data type?
+<ul>
+  <li><input type="radio" name="q5" value="Tuples">Tuples</li>
+  <li><input type="radio" name="q5" value="Dictionary">Dictionary</li>
+  <li><input type="radio" name="q5" value="Lists">Lists</li>
+  <li><input type="radio" name="q5" value="Class">Class</li>
+</ul>
+
+6.Which of the following is not an exception handling keyword in Python?
+
+<ul>
+  <li><input type="radio" name="q6" value="accept"> accept</li>
+  <li><input type="radio" name="q6" value="finally">finally</li>
+  <li><input type="radio" name="q6" value="except">except</li>
+  <li><input type="radio" name="q6" value="try">try</li>
+</ul>
+
+
+7.Suppose list1 is [3, 5, 25, 1, 3], what is min(list1)?
+<ul>
+  <li><input type="radio" name="q7" value="3"> 3</li>
+  <li><input type="radio" name="q7" value="5">5</li>
+  <li><input type="radio" name="q7" value="25">25</li>
+  <li><input type="radio" name="q7" value="1">1</li>
+</ul>
+
+8.Suppose list1 is [2, 33, 222, 14, 25], What is list1[-1]?
+<ul>
+  <li><input type="radio" name="q8" value="Error"> Error</li>
+  <li><input type="radio" name="q8" value="None">None</li>
+  <li><input type="radio" name="q8" value="25">25</li>
+  <li><input type="radio" name="q8" value="2">2</li>
+</ul>
+
+9.print(0xA + 0xB + 0xC):
+<ul>
+  <li><input type="radio" name="q9" value="0xA0xB0xC"> 0xA0xB0xC</li>
+  <li><input type="radio" name="q9" value="Error">Error</li>
+  <li><input type="radio" name="q9" value="0x22">0x22</li>
+  <li><input type="radio" name="q9" value="33">33</li>
+</ul>
+
+10.Which of the following is invalid?
+<ul>
+  <li><input type="radio" name="q10" value="_a = 1"> _a = 1</li>
+  <li><input type="radio" name="q10" value="__a = 1">__a = 1</li>
+  <li><input type="radio" name="q10" value="__str__ = 1">__str__ = 1</li>
+  <li><input type="radio" name="q10" value="none of the mentioned">none of the mentioned</li>
+</ul>
+
+
+<input type="button" value="Get score" onClick="getScore(this.form)">
+<input type="button" value="Try again" onClick="window.location.href='p1.html'"/>
+<input type="reset" value="Clear answers">
+<p> Score = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+Correct answers:<br>
+<textarea class="bgclr" name="solutions" wrap="virtual" rows="10" cols="100" disabled>
+</textarea>
+</form>
